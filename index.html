@@ -10,247 +10,283 @@
 <style>
 
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
-min-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-padding:40px 20px;
-overflow-x:hidden;
-font-family:'Cormorant Garamond', serif;
-background:
-radial-gradient(circle at top,#6246ea 0%,transparent 40%),
-radial-gradient(circle at bottom,#ff4d8d 0%,transparent 40%),
-linear-gradient(180deg,#060814,#0d1024,#05070f);
-color:white;
-position:relative;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    overflow-x:hidden;
+    background:
+    radial-gradient(circle at 20% 20%, rgba(255,120,180,.25), transparent 35%),
+    radial-gradient(circle at 80% 30%, rgba(140,180,255,.20), transparent 35%),
+    radial-gradient(circle at 50% 80%, rgba(255,220,180,.18), transparent 40%),
+    linear-gradient(180deg,#050816,#0a1028,#111b42);
+    font-family:'Cormorant Garamond',serif;
+    color:white;
 }
 
 /* Estrellas */
 
-body::before{
-content:"";
-position:fixed;
-width:100%;
-height:100%;
-top:0;
-left:0;
-background-image:
-radial-gradient(white 1px, transparent 1px),
-radial-gradient(white 1px, transparent 1px),
-radial-gradient(white 1px, transparent 1px);
-background-size:150px 150px;
-background-position:0 0, 50px 70px, 100px 30px;
-opacity:.35;
-animation:stars 18s linear infinite;
+.stars{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
 }
 
-@keyframes stars{
-from{transform:translateY(0);}
-to{transform:translateY(150px);}
+.star{
+    position:absolute;
+    width:3px;
+    height:3px;
+    background:white;
+    border-radius:50%;
+    animation:twinkle 4s infinite ease-in-out;
 }
+
+@keyframes twinkle{
+    0%,100%{opacity:.2;}
+    50%{opacity:1;}
+}
+
+.star:nth-child(1){top:10%;left:15%;}
+.star:nth-child(2){top:18%;left:70%;}
+.star:nth-child(3){top:30%;left:25%;}
+.star:nth-child(4){top:42%;left:80%;}
+.star:nth-child(5){top:58%;left:10%;}
+.star:nth-child(6){top:70%;left:90%;}
+.star:nth-child(7){top:82%;left:22%;}
+.star:nth-child(8){top:15%;left:50%;}
+.star:nth-child(9){top:65%;left:60%;}
+.star:nth-child(10){top:88%;left:75%;}
+
+/* Contenedor */
 
 .poem{
-position:relative;
-max-width:950px;
-width:100%;
-padding:70px 50px;
-background:rgba(255,255,255,.06);
-backdrop-filter:blur(15px);
-border:1px solid rgba(255,255,255,.15);
-border-radius:35px;
-box-shadow:
-0 0 40px rgba(255,255,255,.08),
-0 0 80px rgba(255,105,180,.15);
-z-index:1;
+    width:90%;
+    max-width:900px;
+    padding:70px;
+    text-align:center;
+    position:relative;
+    z-index:2;
 }
 
 .title{
-font-family:'Great Vibes', cursive;
-font-size:5rem;
-text-align:center;
-color:#ffd4e5;
-margin-bottom:10px;
-text-shadow:0 0 20px rgba(255,182,193,.7);
+    font-family:'Great Vibes',cursive;
+    font-size:5rem;
+    color:#ffd6f1;
+    margin-bottom:30px;
+    text-shadow:0 0 20px rgba(255,180,220,.8);
 }
 
 .subtitle{
-text-align:center;
-letter-spacing:4px;
-font-size:.95rem;
-margin-bottom:50px;
-color:#e7dfff;
-text-transform:uppercase;
+    font-size:1.2rem;
+    letter-spacing:4px;
+    color:#d9e6ff;
+    margin-bottom:50px;
+    text-transform:uppercase;
 }
 
-.verse{
-margin-bottom:32px;
-text-align:center;
-font-size:1.55rem;
-line-height:2;
-color:#f8f8f8;
+.content{
+    font-size:1.65rem;
+    line-height:2.1;
+    color:#f8f8ff;
+    text-shadow:0 0 10px rgba(255,255,255,.08);
 }
 
-.signature{
-margin-top:60px;
-text-align:center;
-font-family:'Great Vibes', cursive;
-font-size:3rem;
-color:#ffd9e8;
+.content p{
+    margin-bottom:35px;
 }
+
+/* Luna */
 
 .moon{
-position:absolute;
-top:30px;
-right:40px;
-width:90px;
-height:90px;
-border-radius:50%;
-background:#fff7d1;
-box-shadow:
-0 0 20px #fff7d1,
-0 0 40px #fff7d1,
-0 0 80px rgba(255,255,255,.8);
-opacity:.9;
+    position:fixed;
+    top:40px;
+    right:60px;
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    background:radial-gradient(circle,#fff,#f4f0d4);
+    box-shadow:
+    0 0 40px #fff,
+    0 0 90px rgba(255,255,255,.6);
+}
+
+/* Brillo flotante */
+
+.glow{
+    position:fixed;
+    width:400px;
+    height:400px;
+    background:radial-gradient(circle,
+    rgba(255,180,220,.25),
+    transparent 70%);
+    bottom:-100px;
+    left:-80px;
+    filter:blur(40px);
 }
 
 @media(max-width:768px){
 
-.poem{
-padding:50px 25px;
-}
-
 .title{
-font-size:3.6rem;
+    font-size:3.6rem;
 }
 
-.verse{
-font-size:1.25rem;
-line-height:1.8;
+.content{
+    font-size:1.3rem;
+    line-height:1.9;
 }
 
-.signature{
-font-size:2.5rem;
+.poem{
+    padding:40px 25px;
+}
+
+.moon{
+    width:90px;
+    height:90px;
 }
 
 }
 
 </style>
 </head>
-
 <body>
 
-<div class="poem">
+<div class="stars">
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+</div>
 
 <div class="moon"></div>
+<div class="glow"></div>
+
+<div class="poem">
 
 <div class="title">Mi Vida Entera</div>
 
 <div class="subtitle">
-Sábado 30 de Mayo de 2026 • Bajo las estrellas
+Sábado por la noche • Para la mujer que ilumina mi universo
 </div>
 
-<div class="verse">
-Esta noche de sábado parece distinta a todas las demás,<br>
-porque mientras las estrellas iluminan el cielo,<br>
-eres tú quien ilumina cada rincón de mi corazón.<br>
-No importa cuántas veces piense en ti,<br>
-siempre encuentro una nueva razón para amarte más.
-</div>
+<div class="content">
 
-<div class="verse">
-Quisiera que pudieras escuchar el sonido de mis pensamientos<br>
-cuando pronuncian tu nombre.<br>
-Es un susurro constante,<br>
-una melodía que me acompaña durante el día<br>
+<p>
+Esta noche de sábado parece distinta a todas las demás,
+porque mientras las estrellas iluminan el cielo,
+eres tú quien ilumina cada rincón de mi corazón.
+No importa cuántas veces piense en ti,
+siempre encuentro una nueva razón para amarte más,
+una nueva forma de admirarte
+y una nueva emoción que me recuerda
+que eres la mujer más especial que existe para mí.
+</p>
+
+<p>
+Quisiera que pudieras escuchar el sonido de mis pensamientos
+cuando pronuncian tu nombre.
+Es un susurro constante,
+una melodía que me acompaña durante el día
 y que se vuelve más intensa cuando llega la noche.
-</div>
+Porque cuando todo guarda silencio,
+mi alma corre hacia ti,
+buscando refugio en tu recuerdo
+y abrazando la felicidad que me provoca saber que existes.
+</p>
 
-<div class="verse">
-Eres hermosa de una manera que las palabras<br>
-apenas pueden describir.<br>
-Hermosa cuando sonríes,<br>
-cuando sueñas,<br>
-cuando me hablas,<br>
+<p>
+Eres hermosa de una manera que las palabras apenas pueden describir.
+Hermosa cuando sonríes,
+cuando sueñas,
+cuando me hablas,
 cuando me miras.
-</div>
+Hermosa incluso en esos momentos
+en los que no te das cuenta de lo increíble que eres.
+</p>
 
-<div class="verse">
-Esta noche quisiera estar contigo,<br>
-perderme en la profundidad de tus ojos<br>
-y quedarme allí para siempre.<br>
-Quisiera tomarte de la mano<br>
-y recordarte una por una todas las razones<br>
-por las que te amo.
-</div>
+<p>
+Esta noche quisiera estar contigo,
+perderme en la profundidad de tus ojos
+y quedarme allí para siempre.
+Quisiera tomarte de la mano
+y recordarte una por una
+todas las razones por las que te amo.
+</p>
 
-<div class="verse">
-Porque cuando pienso en ti,<br>
-no imagino solamente un amor bonito.<br>
-Imagino una historia inmensa,<br>
-de esas que parecen escritas por el destino.<br>
-Imagino risas compartidas,<br>
-sueños construidos juntos<br>
-y amaneceres tomados de la mano.
-</div>
+<p>
+Porque cuando pienso en ti,
+no imagino solamente un amor bonito.
+Imagino una historia inmensa,
+de esas que parecen escritas por el destino.
+Imagino risas compartidas,
+sueños construidos juntos,
+amaneceres tomados de la mano
+y noches en las que el mundo desaparece
+porque basta con tenernos el uno al otro.
+</p>
 
-<div class="verse">
-Tienes un poder especial sobre mí.<br>
-Logras que mi corazón se vuelva vulnerable y valiente<br>
-al mismo tiempo.<br>
-Logras que una simple fotografía tuya<br>
+<p>
+Y es que tienes un poder especial sobre mí.
+Logras que mi corazón se vuelva vulnerable y valiente
+al mismo tiempo.
+Logras que una simple fotografía tuya
 me haga sonreír durante horas.
-</div>
+</p>
 
-<div class="verse">
-Eres mi pensamiento favorito,<br>
-mi emoción más intensa,<br>
-y la inspiración de los sentimientos más profundos<br>
-que he conocido.<br>
-La mujer que llena mi vida<br>
-de una felicidad imposible de reemplazar.
-</div>
+<p>
+Esta noche quiero que recuerdes algo:
+eres mi pensamiento favorito,
+mi emoción más intensa
+y la inspiración de los sentimientos más profundos
+que he conocido.
+</p>
 
-<div class="verse">
-Si pudiera pedir un deseo esta noche,<br>
-no pediría riquezas ni éxitos.<br>
-Pediría más momentos contigo,<br>
-más conversaciones hasta la madrugada,<br>
-más abrazos capaces de detener cualquier tormenta.
-</div>
+<p>
+Si pudiera pedir un deseo esta noche,
+no pediría riquezas ni éxitos.
+Pediría más momentos contigo.
+Más conversaciones que duren hasta la madrugada.
+Más abrazos que hagan desaparecer cualquier preocupación.
+</p>
 
-<div class="verse">
-Porque mi amor por ti no conoce horarios ni límites.<br>
-Mientras la luna observa desde el cielo,<br>
-yo sigo aquí,<br>
-enamorándome de ti una vez más,<br>
-con la misma intensidad de siempre.
-</div>
+<p>
+Porque mi amor por ti no conoce horarios ni límites.
+Esta noche, como todas las noches,
+mi corazón te pertenece.
+Y mientras la luna observa desde el cielo,
+yo sigo aquí,
+enamorándome de ti una vez más,
+con la misma intensidad de siempre,
+pero con un amor que cada día crece más.
+</p>
 
-<div class="verse">
-Te amo con toda mi alma,<br>
-con cada pensamiento,<br>
-con cada latido,<br>
-y con cada sueño que imagino a tu lado.
-</div>
+<p>
+Te amo con toda mi alma,
+con cada pensamiento
+y con cada latido.
+</p>
 
-<div class="verse">
-Y en esta hermosa noche de sábado,<br>
-lo único que deseo<br>
-es que nunca olvides que eres<br>
-el amor más grande,<br>
-más precioso<br>
-y más apasionado<br>
+<p>
+Y en esta hermosa noche de sábado,
+lo único que deseo
+es que nunca olvides
+que eres el amor más grande,
+más precioso
+y más apasionado
 que ha llegado a mi vida.
-</div>
+</p>
 
-<div class="signature">
-✨ Para Siempre Tú ✨
 </div>
 
 </div>
