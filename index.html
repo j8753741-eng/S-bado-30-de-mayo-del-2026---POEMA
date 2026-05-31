@@ -3,11 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SÁBADO 30 DE MAYO DEL 2026 - POEMA</title>
+<title>Mi Vida Entera</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Parisienne&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -16,31 +17,34 @@
 
 body{
     min-height:100vh;
-    background:
-    radial-gradient(circle at top, #273469 0%, #151a35 40%, #080b17 100%);
-    overflow-x:hidden;
     display:flex;
     justify-content:center;
     align-items:center;
-    padding:40px 15px;
-    font-family:'Cormorant Garamond', serif;
+    overflow-x:hidden;
+    background:
+    radial-gradient(circle at 20% 20%, rgba(255,120,180,.25), transparent 35%),
+    radial-gradient(circle at 80% 30%, rgba(140,180,255,.20), transparent 35%),
+    radial-gradient(circle at 50% 80%, rgba(255,220,180,.18), transparent 40%),
+    linear-gradient(180deg,#050816,#0a1028,#111b42);
+    font-family:'Cormorant Garamond',serif;
+    color:white;
 }
 
 /* Estrellas */
+
 .stars{
     position:fixed;
     inset:0;
     overflow:hidden;
-    z-index:0;
 }
 
 .star{
     position:absolute;
-    width:2px;
-    height:2px;
+    width:3px;
+    height:3px;
     background:white;
     border-radius:50%;
-    animation:twinkle 4s infinite;
+    animation:twinkle 4s infinite ease-in-out;
 }
 
 @keyframes twinkle{
@@ -48,170 +52,242 @@ body{
     50%{opacity:1;}
 }
 
-/* Luna */
-.moon{
-    position:fixed;
-    top:50px;
-    right:70px;
-    width:120px;
-    height:120px;
-    border-radius:50%;
-    background:#fff8dc;
-    box-shadow:0 0 60px rgba(255,255,220,.8);
-    z-index:1;
-}
+.star:nth-child(1){top:10%;left:15%;}
+.star:nth-child(2){top:18%;left:70%;}
+.star:nth-child(3){top:30%;left:25%;}
+.star:nth-child(4){top:42%;left:80%;}
+.star:nth-child(5){top:58%;left:10%;}
+.star:nth-child(6){top:70%;left:90%;}
+.star:nth-child(7){top:82%;left:22%;}
+.star:nth-child(8){top:15%;left:50%;}
+.star:nth-child(9){top:65%;left:60%;}
+.star:nth-child(10){top:88%;left:75%;}
 
-/* Carta */
-.card{
+/* Contenedor */
+
+.poem{
+    width:90%;
+    max-width:900px;
+    padding:70px;
+    text-align:center;
     position:relative;
     z-index:2;
-    width:100%;
-    max-width:900px;
-    background:rgba(255,255,255,0.08);
-    backdrop-filter:blur(15px);
-    border:1px solid rgba(255,255,255,.15);
-    border-radius:35px;
-    padding:60px;
-    box-shadow:0 0 50px rgba(255,255,255,.08);
 }
 
 .title{
-    text-align:center;
-    color:#ffe7a8;
-    font-family:'Parisienne', cursive;
-    font-size:4rem;
-    margin-bottom:10px;
+    font-family:'Great Vibes',cursive;
+    font-size:5rem;
+    color:#ffd6f1;
+    margin-bottom:30px;
+    text-shadow:0 0 20px rgba(255,180,220,.8);
 }
 
 .subtitle{
-    text-align:center;
-    color:#fff;
-    letter-spacing:3px;
-    margin-bottom:45px;
-    font-size:1rem;
+    font-size:1.2rem;
+    letter-spacing:4px;
+    color:#d9e6ff;
+    margin-bottom:50px;
+    text-transform:uppercase;
 }
 
-.heart{
-    text-align:center;
-    font-size:2rem;
-    margin-bottom:30px;
-    animation:pulse 2s infinite;
+.content{
+    font-size:1.65rem;
+    line-height:2.1;
+    color:#f8f8ff;
+    text-shadow:0 0 10px rgba(255,255,255,.08);
 }
 
-@keyframes pulse{
-    50%{transform:scale(1.2);}
+.content p{
+    margin-bottom:35px;
 }
 
-.letter{
-    color:#fdfdfd;
-    font-size:1.45rem;
-    line-height:2;
-    text-align:justify;
+/* Luna */
+
+.moon{
+    position:fixed;
+    top:40px;
+    right:60px;
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    background:radial-gradient(circle,#fff,#f4f0d4);
+    box-shadow:
+    0 0 40px #fff,
+    0 0 90px rgba(255,255,255,.6);
 }
 
-.letter p{
-    margin-bottom:25px;
-}
+/* Brillo flotante */
 
-.signature{
-    margin-top:50px;
-    text-align:center;
-    color:#ffe7a8;
-    font-family:'Parisienne', cursive;
-    font-size:2.6rem;
-}
-
-.footer{
-    margin-top:15px;
-    text-align:center;
-    color:#d8d8d8;
-    font-size:1rem;
-    letter-spacing:2px;
+.glow{
+    position:fixed;
+    width:400px;
+    height:400px;
+    background:radial-gradient(circle,
+    rgba(255,180,220,.25),
+    transparent 70%);
+    bottom:-100px;
+    left:-80px;
+    filter:blur(40px);
 }
 
 @media(max-width:768px){
 
-.card{
-    padding:35px 25px;
-}
-
 .title{
-    font-size:3rem;
+    font-size:3.6rem;
 }
 
-.letter{
-    font-size:1.2rem;
-    line-height:1.8;
+.content{
+    font-size:1.3rem;
+    line-height:1.9;
+}
+
+.poem{
+    padding:40px 25px;
 }
 
 .moon{
-    width:80px;
-    height:80px;
-    right:25px;
+    width:90px;
+    height:90px;
 }
+
 }
+
 </style>
 </head>
-
 <body>
 
 <div class="stars">
-    <div class="star" style="top:10%;left:15%;"></div>
-    <div class="star" style="top:20%;left:70%;"></div>
-    <div class="star" style="top:30%;left:40%;"></div>
-    <div class="star" style="top:60%;left:80%;"></div>
-    <div class="star" style="top:75%;left:25%;"></div>
-    <div class="star" style="top:15%;left:85%;"></div>
-    <div class="star" style="top:85%;left:60%;"></div>
-    <div class="star" style="top:50%;left:10%;"></div>
-    <div class="star" style="top:40%;left:55%;"></div>
-    <div class="star" style="top:90%;left:90%;"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
+<div class="star"></div>
 </div>
 
 <div class="moon"></div>
+<div class="glow"></div>
 
-<div class="card">
+<div class="poem">
 
-    <div class="title">Mi Vida Entera</div>
-    <div class="subtitle">SÁBADO 30 DE MAYO DE 2026</div>
+<div class="title">Mi Vida Entera</div>
 
-    <div class="heart">🤍</div>
+<div class="subtitle">
+Sábado por la noche • Para la mujer que ilumina mi universo
+</div>
 
-    <div class="letter">
+<div class="content">
 
-        <p><strong>MI VIDA ENTERA,</strong></p>
+<p>
+Esta noche de sábado parece distinta a todas las demás,
+porque mientras las estrellas iluminan el cielo,
+eres tú quien ilumina cada rincón de mi corazón.
+No importa cuántas veces piense en ti,
+siempre encuentro una nueva razón para amarte más,
+una nueva forma de admirarte
+y una nueva emoción que me recuerda
+que eres la mujer más especial que existe para mí.
+</p>
 
-        <p>Esta noche de sábado parece distinta a todas las demás, porque mientras las estrellas iluminan el cielo, eres tú quien ilumina cada rincón de mi corazón. No importa cuántas veces piense en ti, siempre encuentro una nueva razón para amarte más, una nueva forma de admirarte y una nueva emoción que me recuerda que eres la mujer más especial que existe para mí.</p>
+<p>
+Quisiera que pudieras escuchar el sonido de mis pensamientos
+cuando pronuncian tu nombre.
+Es un susurro constante,
+una melodía que me acompaña durante el día
+y que se vuelve más intensa cuando llega la noche.
+Porque cuando todo guarda silencio,
+mi alma corre hacia ti,
+buscando refugio en tu recuerdo
+y abrazando la felicidad que me provoca saber que existes.
+</p>
 
-        <p>Quisiera que pudieras escuchar el sonido de mis pensamientos cuando pronuncian tu nombre. Es un susurro constante, una melodía que me acompaña durante el día y que se vuelve más intensa cuando llega la noche. Porque cuando todo guarda silencio, mi alma corre hacia ti, buscando refugio en tu recuerdo y abrazando la felicidad que me provoca saber que existes.</p>
+<p>
+Eres hermosa de una manera que las palabras apenas pueden describir.
+Hermosa cuando sonríes,
+cuando sueñas,
+cuando me hablas,
+cuando me miras.
+Hermosa incluso en esos momentos
+en los que no te das cuenta de lo increíble que eres.
+</p>
 
-        <p>Eres hermosa de una manera que las palabras apenas pueden describir. Hermosa cuando sonríes, cuando sueñas, cuando me hablas, cuando me miras. Hermosa incluso en esos momentos en los que no te das cuenta de lo increíble que eres. Hay algo en ti que supera cualquier explicación, algo que hace que mi corazón se acelere y que mis emociones se vuelvan imposibles de contener.</p>
+<p>
+Esta noche quisiera estar contigo,
+perderme en la profundidad de tus ojos
+y quedarme allí para siempre.
+Quisiera tomarte de la mano
+y recordarte una por una
+todas las razones por las que te amo.
+</p>
 
-        <p>Esta noche quisiera estar contigo, perderme en la profundidad de tus ojos y quedarme allí para siempre. Quisiera tomarte de la mano y recordarte una por una todas las razones por las que te amo. Quisiera abrazarte tan fuerte que el tiempo olvidara avanzar y que el universo entero entendiera que mi lugar favorito siempre será a tu lado.</p>
+<p>
+Porque cuando pienso en ti,
+no imagino solamente un amor bonito.
+Imagino una historia inmensa,
+de esas que parecen escritas por el destino.
+Imagino risas compartidas,
+sueños construidos juntos,
+amaneceres tomados de la mano
+y noches en las que el mundo desaparece
+porque basta con tenernos el uno al otro.
+</p>
 
-        <p>Porque cuando pienso en ti, no imagino solamente un amor bonito. Imagino una historia inmensa, una de esas que parecen escritas por el destino. Imagino risas compartidas, sueños construidos juntos, amaneceres tomados de la mano y noches en las que el mundo desaparece porque basta con tenernos el uno al otro.</p>
+<p>
+Y es que tienes un poder especial sobre mí.
+Logras que mi corazón se vuelva vulnerable y valiente
+al mismo tiempo.
+Logras que una simple fotografía tuya
+me haga sonreír durante horas.
+</p>
 
-        <p>Y es que tienes un poder especial sobre mí. Logras que mi corazón se vuelva vulnerable y valiente al mismo tiempo. Logras que una simple fotografía tuya me haga sonreír durante horas. Logras que incluso la distancia se sienta pequeña cuando cierro los ojos y pienso en todo lo que significas para mí.</p>
+<p>
+Esta noche quiero que recuerdes algo:
+eres mi pensamiento favorito,
+mi emoción más intensa
+y la inspiración de los sentimientos más profundos
+que he conocido.
+</p>
 
-        <p>Esta noche quiero que recuerdes algo: eres mi pensamiento favorito, mi emoción más intensa y la inspiración de los sentimientos más profundos que he conocido. Eres la mujer que hace que mi corazón lata con más fuerza, la que convierte cualquier día común en algo extraordinario y la que llena mi vida de una felicidad imposible de reemplazar.</p>
+<p>
+Si pudiera pedir un deseo esta noche,
+no pediría riquezas ni éxitos.
+Pediría más momentos contigo.
+Más conversaciones que duren hasta la madrugada.
+Más abrazos que hagan desaparecer cualquier preocupación.
+</p>
 
-        <p>Si pudiera pedir un deseo esta noche, no pediría riquezas ni éxitos. Pediría más momentos contigo. Más conversaciones que duren hasta la madrugada. Más abrazos que hagan desaparecer cualquier preocupación. Más oportunidades para demostrarte cuánto te amo y cuánto significas para mí.</p>
+<p>
+Porque mi amor por ti no conoce horarios ni límites.
+Esta noche, como todas las noches,
+mi corazón te pertenece.
+Y mientras la luna observa desde el cielo,
+yo sigo aquí,
+enamorándome de ti una vez más,
+con la misma intensidad de siempre,
+pero con un amor que cada día crece más.
+</p>
 
-        <p>Porque mi amor por ti no conoce horarios ni límites. Esta noche, como todas las noches, mi corazón te pertenece. Y mientras la luna observa desde el cielo, yo sigo aquí, enamorándome de ti una vez más, con la misma intensidad de siempre, pero con un amor que cada día crece más.</p>
+<p>
+Te amo con toda mi alma,
+con cada pensamiento
+y con cada latido.
+</p>
 
-        <p>Te amo con toda mi alma, con cada pensamiento y con cada latido.</p>
+<p>
+Y en esta hermosa noche de sábado,
+lo único que deseo
+es que nunca olvides
+que eres el amor más grande,
+más precioso
+y más apasionado
+que ha llegado a mi vida.
+</p>
 
-        <p>Y en esta hermosa noche de sábado, lo único que deseo es que nunca olvides que eres el amor más grande, más precioso y más apasionado que ha llegado a mi vida.</p>
-
-    </div>
-
-    <div class="signature">
-        Para Siempre Tuyo ✨
-    </div>
-
-    <div class="footer">
-        Bajo las mismas estrellas, pensando en ti
-    </div>
+</div>
 
 </div>
 
